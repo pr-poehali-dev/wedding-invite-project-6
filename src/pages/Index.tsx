@@ -69,19 +69,19 @@ export default function Index() {
             backgroundImage: `url(https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/deca0f6a-56e4-430a-a9ec-e36e2d2dd7a8.jpg)`,
           }}
         >
-          <div className="w-[55%] md:w-[52%]">
-            <p className="mb-2 font-sans text-[9px] uppercase tracking-[0.25em] text-muted-foreground md:text-xs md:tracking-[0.4em]">
+          <div className="w-[42%] md:w-[40%]">
+            <p className="mb-1.5 font-sans text-[7px] uppercase tracking-[0.15em] text-muted-foreground md:text-[10px] md:tracking-[0.3em]">
               Вы приглашены на свадьбу
             </p>
-            <div className="floral-divider my-3 md:my-5" />
-            <h1 className="font-serif text-3xl font-medium leading-tight text-foreground md:text-5xl">
+            <div className="floral-divider my-2 md:my-4" />
+            <h1 className="font-serif text-xl font-medium leading-tight text-foreground md:text-4xl">
               Дарья <span className="text-rose">&</span> Григорий
             </h1>
-            <div className="floral-divider my-3 md:my-5" />
-            <p className="font-serif text-sm tracking-[0.2em] text-muted-foreground md:text-lg md:tracking-[0.3em]">
+            <div className="floral-divider my-2 md:my-4" />
+            <p className="font-serif text-[10px] tracking-[0.15em] text-muted-foreground md:text-base md:tracking-[0.25em]">
               05 · 10 · 2026
             </p>
-            <p className="mt-3 font-script text-lg text-rose md:mt-5 md:text-2xl">Ждём вас!</p>
+            <p className="mt-2 font-script text-sm text-rose md:mt-4 md:text-xl">Ждём вас!</p>
           </div>
         </div>
 
