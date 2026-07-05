@@ -52,25 +52,24 @@ export default function Index() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* HERO */}
       <section className="relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-sand via-background to-background px-6 py-16 text-center">
-        <div className="animate-fade-in relative z-10 mx-auto flex aspect-square w-full max-w-lg items-center justify-center bg-contain bg-center bg-no-repeat px-12 py-12 md:max-w-2xl"
+        <div className="animate-fade-in relative z-10 mx-auto flex aspect-square w-full max-w-lg items-center justify-center bg-contain bg-center bg-no-repeat md:max-w-2xl"
           style={{
             backgroundImage: `url(https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/deca0f6a-56e4-430a-a9ec-e36e2d2dd7a8.jpg)`,
-            backgroundSize: '135%',
           }}
         >
-          <div>
-            <p className="mb-3 font-sans text-xs uppercase tracking-[0.4em] text-muted-foreground">
+          <div className="w-[55%] md:w-[52%]">
+            <p className="mb-2 font-sans text-[9px] uppercase tracking-[0.25em] text-muted-foreground md:text-xs md:tracking-[0.4em]">
               Вы приглашены на свадьбу
             </p>
-            <div className="floral-divider my-5" />
-            <h1 className="font-serif text-5xl font-medium leading-none text-foreground md:text-7xl">
+            <div className="floral-divider my-3 md:my-5" />
+            <h1 className="font-serif text-3xl font-medium leading-tight text-foreground md:text-5xl">
               Дарья <span className="text-rose">&</span> Григорий
             </h1>
-            <div className="floral-divider my-5" />
-            <p className="font-serif text-xl tracking-[0.3em] text-muted-foreground md:text-2xl">
+            <div className="floral-divider my-3 md:my-5" />
+            <p className="font-serif text-sm tracking-[0.2em] text-muted-foreground md:text-lg md:tracking-[0.3em]">
               05 · 10 · 2026
             </p>
-            <p className="mt-5 font-script text-2xl text-rose md:text-3xl">Ждём вас!</p>
+            <p className="mt-3 font-script text-lg text-rose md:mt-5 md:text-2xl">Ждём вас!</p>
           </div>
         </div>
 
@@ -101,11 +100,6 @@ export default function Index() {
               src={HERO_IMG}
               alt="Дарья и Григорий"
               className="w-full rounded-2xl border-4 border-card object-cover shadow-xl"
-            />
-            <img
-              src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/9c86208a-963f-41ea-8753-f1942e03cc1d.jpg"
-              alt=""
-              className="pointer-events-none absolute -bottom-8 -right-8 w-24 opacity-95 mix-blend-multiply md:w-32"
             />
           </div>
           <h2 className="font-serif text-5xl text-foreground md:text-6xl">Наша история</h2>
