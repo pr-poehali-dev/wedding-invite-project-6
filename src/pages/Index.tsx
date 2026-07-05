@@ -52,9 +52,10 @@ export default function Index() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* HERO */}
       <section className="relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-sand via-background to-background px-6 py-16 text-center">
-        <div className="animate-fade-in relative z-10 mx-auto flex aspect-[9/11] w-full max-w-md items-center justify-center bg-contain bg-center bg-no-repeat px-10 py-16 md:max-w-lg"
+        <div className="animate-fade-in relative z-10 mx-auto flex aspect-square w-full max-w-lg items-center justify-center bg-contain bg-center bg-no-repeat px-12 py-12 md:max-w-2xl"
           style={{
             backgroundImage: `url(https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/deca0f6a-56e4-430a-a9ec-e36e2d2dd7a8.jpg)`,
+            backgroundSize: '135%',
           }}
         >
           <div>
@@ -67,7 +68,7 @@ export default function Index() {
             </h1>
             <div className="floral-divider my-5" />
             <p className="font-serif text-xl tracking-[0.3em] text-muted-foreground md:text-2xl">
-              12 · 09 · 2026
+              05 · 10 · 2026
             </p>
             <p className="mt-5 font-script text-2xl text-rose md:text-3xl">Ждём вас!</p>
           </div>
@@ -171,15 +172,15 @@ export default function Index() {
           <div className="floral-divider my-8" />
           <p className="mb-2 flex items-center justify-center gap-2 text-lg text-foreground">
             <Icon name="MapPin" size={20} className="text-rose" />
-            Усадьба «Цветущий сад»
+            Дворец бракосочетания (ЗАГС)
           </p>
-          <p className="mb-8 text-muted-foreground">Москва, ул. Тверская, 1</p>
+          <p className="mb-8 text-muted-foreground">г. Электросталь, ул. Трудовая, 32</p>
         </Reveal>
         <Reveal delay={120}>
           <div className="overflow-hidden rounded-3xl border-4 border-blush shadow-lg">
             <iframe
               title="Карта места проведения"
-              src="https://yandex.ru/map-widget/v1/?ll=37.612%2C55.757&z=15&pt=37.612,55.757,pm2rdm"
+              src="https://yandex.ru/map-widget/v1/?text=Электросталь%2C%20улица%20Трудовая%2C%2032&z=16"
               className="h-[380px] w-full md:h-[440px]"
               frameBorder="0"
               allowFullScreen
@@ -332,7 +333,7 @@ export default function Index() {
           className="pointer-events-none absolute -right-8 -top-4 w-24 rotate-180 opacity-70 mix-blend-multiply md:w-32"
         />
         <p className="font-script text-4xl text-rose">Дарья & Григорий</p>
-        <p className="mt-2 font-serif tracking-[0.3em] text-muted-foreground">12 · 09 · 2026</p>
+        <p className="mt-2 font-serif tracking-[0.3em] text-muted-foreground">05 · 10 · 2026</p>
       </footer>
     </div>
   );
