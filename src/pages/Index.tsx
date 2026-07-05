@@ -51,40 +51,46 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* HERO */}
-      <section
-        className="relative flex min-h-screen flex-col items-center justify-center px-6 text-center"
-        style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(250,244,238,0.55), rgba(250,244,238,0.85)), url(${HERO_IMG})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <img
-          src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/8fe3036e-7097-411a-965d-836ba9afec81.jpg"
-          alt=""
-          className="pointer-events-none absolute -left-4 -top-4 w-40 opacity-90 mix-blend-multiply md:w-64"
-        />
-        <img
-          src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/9c86208a-963f-41ea-8753-f1942e03cc1d.jpg"
-          alt=""
-          className="pointer-events-none absolute -bottom-4 -right-4 w-40 rotate-180 opacity-90 mix-blend-multiply md:w-64"
-        />
+      <section className="relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-sand via-background to-background px-6 py-24 text-center">
+        <div className="animate-fade-in relative z-10 mx-auto max-w-2xl rounded-[2rem] border border-gold/40 bg-card px-8 py-14 shadow-xl md:px-16 md:py-20">
+          <img
+            src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/8fe3036e-7097-411a-965d-836ba9afec81.jpg"
+            alt=""
+            className="pointer-events-none absolute -left-6 -top-6 w-24 opacity-95 mix-blend-multiply md:w-40"
+          />
+          <img
+            src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/8fe3036e-7097-411a-965d-836ba9afec81.jpg"
+            alt=""
+            className="pointer-events-none absolute -right-6 -top-6 w-24 -scale-x-100 opacity-95 mix-blend-multiply md:w-40"
+          />
+          <img
+            src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/9c86208a-963f-41ea-8753-f1942e03cc1d.jpg"
+            alt=""
+            className="pointer-events-none absolute -bottom-6 -left-6 w-24 -scale-x-100 opacity-95 mix-blend-multiply md:w-40"
+          />
+          <img
+            src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/9c86208a-963f-41ea-8753-f1942e03cc1d.jpg"
+            alt=""
+            className="pointer-events-none absolute -bottom-6 -right-6 w-24 opacity-95 mix-blend-multiply md:w-40"
+          />
 
-        <div className="animate-fade-in relative z-10 rounded-[2rem] border border-gold/30 bg-card/70 px-8 py-12 shadow-xl backdrop-blur-sm md:px-16 md:py-16">
-          <p className="mb-4 font-script text-3xl text-rose md:text-4xl">Мы приглашаем вас</p>
-          <div className="floral-divider mb-6" />
+          <p className="mb-3 font-sans text-xs uppercase tracking-[0.4em] text-muted-foreground">
+            Вы приглашены на свадьбу
+          </p>
+          <div className="floral-divider my-6" />
           <h1 className="font-serif text-6xl font-medium leading-none text-foreground md:text-8xl">
             Дарья <span className="text-rose">&</span> Григорий
           </h1>
-          <div className="floral-divider mt-6 mb-8" />
+          <div className="floral-divider my-6" />
           <p className="font-serif text-2xl tracking-[0.3em] text-muted-foreground md:text-3xl">
             12 · 09 · 2026
           </p>
+          <p className="mt-6 font-script text-3xl text-rose">Ждём вас!</p>
         </div>
 
         <a
           href="#story"
-          className="absolute bottom-8 flex flex-col items-center gap-2 text-gold transition-opacity hover:opacity-70"
+          className="relative z-10 mt-10 flex flex-col items-center gap-2 text-gold transition-opacity hover:opacity-70"
         >
           <span className="font-serif text-lg tracking-widest">листайте вниз</span>
           <Icon name="ChevronDown" className="animate-float" size={26} />
@@ -94,6 +100,18 @@ export default function Index() {
       {/* STORY */}
       <section id="story" className="mx-auto max-w-3xl px-6 py-24 text-center md:py-32">
         <Reveal>
+          <div className="relative mx-auto mb-10 w-64 md:w-80">
+            <img
+              src={HERO_IMG}
+              alt="Дарья и Григорий"
+              className="w-full rounded-2xl border-4 border-card object-cover shadow-xl"
+            />
+            <img
+              src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/9c86208a-963f-41ea-8753-f1942e03cc1d.jpg"
+              alt=""
+              className="pointer-events-none absolute -bottom-8 -right-8 w-24 opacity-95 mix-blend-multiply md:w-32"
+            />
+          </div>
           <h2 className="font-serif text-5xl text-foreground md:text-6xl">Наша история</h2>
           <div className="floral-divider my-8" />
         </Reveal>
