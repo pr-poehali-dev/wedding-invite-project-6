@@ -1,17 +1,276 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useEffect, useRef, useState } from 'react';
+import Icon from '@/components/ui/icon';
 
-const Index = () => {
+const HERO_IMG =
+  'https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/360c81e8-8350-4ce1-a9e5-da891749ae6f.jpg';
+
+const timeline = [
+  { time: '15:00', title: 'Сбор гостей', desc: 'Welcome-зона, лёгкие закуски и напитки', icon: 'Coffee' },
+  { time: '16:00', title: 'Церемония', desc: 'Обмен клятвами в цветущем саду', icon: 'Heart' },
+  { time: '17:30', title: 'Фуршет', desc: 'Поздравления и семейные фото', icon: 'GlassWater' },
+  { time: '19:00', title: 'Банкет', desc: 'Ужин, тосты и первый танец', icon: 'UtensilsCrossed' },
+  { time: '22:00', title: 'Вечеринка', desc: 'Танцы до утра и фейерверк', icon: 'Music' },
+];
+
+function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add('is-visible');
+          obs.unobserve(el);
+        }
+      },
+      { threshold: 0.15 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
-      <span className="absolute bottom-8 left-1/2 -translate-x-1/2 inline-block bg-[#FF6637] text-white text-sm px-4 py-2 rounded-full whitespace-nowrap">
-        Подождите 5 минут, Юра создает первую версию проекта с нуля
-      </span>
+    <div ref={ref} className="reveal" style={{ transitionDelay: `${delay}ms` }}>
+      {children}
     </div>
   );
-};
+}
 
-export default Index;
+export default function Index() {
+  const [name, setName] = useState('');
+  const [plusOne, setPlusOne] = useState('');
+  const [attendance, setAttendance] = useState<'yes' | 'no'>('yes');
+  const [wishes, setWishes] = useState('');
+
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert(`Спасибо, ${name || 'дорогой гость'}! Мы очень ждём вас!`);
+  };
+
+  return (
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      {/* HERO */}
+      <section
+        className="relative flex min-h-screen flex-col items-center justify-center px-6 text-center"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(250,244,238,0.55), rgba(250,244,238,0.85)), url(${HERO_IMG})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="animate-float pointer-events-none absolute left-8 top-16 text-5xl opacity-60 md:text-7xl">🌸</div>
+        <div className="animate-float pointer-events-none absolute bottom-24 right-10 text-4xl opacity-50 md:text-6xl" style={{ animationDelay: '2s' }}>🌷</div>
+
+        <div className="animate-fade-in">
+          <p className="mb-4 font-script text-3xl text-rose md:text-4xl">Мы приглашаем вас</p>
+          <div className="floral-divider mb-6" />
+          <h1 className="font-serif text-6xl font-medium leading-none text-foreground md:text-8xl">
+            Анна <span className="text-rose">&</span> Дмитрий
+          </h1>
+          <div className="floral-divider mt-6 mb-8" />
+          <p className="font-serif text-2xl tracking-[0.3em] text-muted-foreground md:text-3xl">
+            12 · 09 · 2026
+          </p>
+        </div>
+
+        <a
+          href="#story"
+          className="absolute bottom-8 flex flex-col items-center gap-2 text-gold transition-opacity hover:opacity-70"
+        >
+          <span className="font-serif text-lg tracking-widest">листайте вниз</span>
+          <Icon name="ChevronDown" className="animate-float" size={26} />
+        </a>
+      </section>
+
+      {/* STORY */}
+      <section id="story" className="mx-auto max-w-3xl px-6 py-24 text-center md:py-32">
+        <Reveal>
+          <h2 className="font-serif text-5xl text-foreground md:text-6xl">Наша история</h2>
+          <div className="floral-divider my-8" />
+        </Reveal>
+        <Reveal delay={120}>
+          <p className="mb-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
+            Мы встретились случайно тёплым майским вечером — за одним столиком маленькой кофейни, где
+            оба спрятались от внезапного дождя. Один общий зонт, один разговор до самого закрытия — и с
+            тех пор мы больше не расставались.
+          </p>
+          <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
+            За эти годы мы прошли вместе радости и испытания, объехали любимые города и построили дом,
+            в котором всегда пахнет свежим кофе. Теперь пришло время сказать друг другу самое главное
+            «да» — и мы будем счастливы разделить этот день с вами.
+          </p>
+        </Reveal>
+      </section>
+
+      {/* PROGRAM */}
+      <section className="bg-secondary/60 px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-3xl">
+          <Reveal>
+            <h2 className="text-center font-serif text-5xl text-foreground md:text-6xl">Программа праздника</h2>
+            <div className="floral-divider my-8" />
+          </Reveal>
+          <div className="relative mt-12">
+            <div className="absolute left-6 top-0 hidden h-full w-px bg-gold/40 md:block" />
+            {timeline.map((item, i) => (
+              <Reveal key={item.time} delay={i * 100}>
+                <div className="relative mb-8 flex items-start gap-5 rounded-2xl bg-card p-6 shadow-sm md:ml-16">
+                  <div className="absolute -left-[52px] top-6 hidden h-10 w-10 items-center justify-center rounded-full bg-rose text-primary-foreground shadow md:flex">
+                    <Icon name={item.icon} size={18} />
+                  </div>
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blush text-rose md:hidden">
+                    <Icon name={item.icon} size={20} />
+                  </div>
+                  <div>
+                    <p className="font-serif text-2xl text-rose">{item.time}</p>
+                    <h3 className="font-serif text-xl text-foreground">{item.title}</h3>
+                    <p className="text-muted-foreground">{item.desc}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LOCATION + MAP */}
+      <section className="mx-auto max-w-4xl px-6 py-24 text-center md:py-32">
+        <Reveal>
+          <h2 className="font-serif text-5xl text-foreground md:text-6xl">Место проведения</h2>
+          <div className="floral-divider my-8" />
+          <p className="mb-2 flex items-center justify-center gap-2 text-lg text-foreground">
+            <Icon name="MapPin" size={20} className="text-rose" />
+            Усадьба «Цветущий сад»
+          </p>
+          <p className="mb-8 text-muted-foreground">Москва, ул. Тверская, 1</p>
+        </Reveal>
+        <Reveal delay={120}>
+          <div className="overflow-hidden rounded-3xl border-4 border-blush shadow-lg">
+            <iframe
+              title="Карта места проведения"
+              src="https://yandex.ru/map-widget/v1/?ll=37.612%2C55.757&z=15&pt=37.612,55.757,pm2rdm"
+              className="h-[380px] w-full md:h-[440px]"
+              frameBorder="0"
+              allowFullScreen
+            />
+          </div>
+        </Reveal>
+      </section>
+
+      {/* DRESS CODE */}
+      <section className="bg-secondary/60 px-6 py-24 text-center md:py-32">
+        <div className="mx-auto max-w-2xl">
+          <Reveal>
+            <h2 className="font-serif text-5xl text-foreground md:text-6xl">Дресс-код</h2>
+            <div className="floral-divider my-8" />
+            <p className="mb-8 text-lg text-muted-foreground">
+              Мы будем благодарны, если вы поддержите нежную палитру торжества в своих нарядах
+            </p>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              {[
+                { c: 'hsl(350 45% 88%)', n: 'Пудровый' },
+                { c: 'hsl(348 55% 72%)', n: 'Розовый' },
+                { c: 'hsl(32 38% 90%)', n: 'Бежевый' },
+                { c: 'hsl(36 45% 62%)', n: 'Золотой' },
+              ].map((color) => (
+                <div key={color.n} className="flex flex-col items-center gap-2">
+                  <span
+                    className="h-16 w-16 rounded-full border-2 border-white shadow-md"
+                    style={{ backgroundColor: color.c }}
+                  />
+                  <span className="font-serif text-lg text-foreground">{color.n}</span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* RSVP */}
+      <section className="mx-auto max-w-xl px-6 py-24 md:py-32">
+        <Reveal>
+          <h2 className="text-center font-serif text-5xl text-foreground md:text-6xl">
+            Подтвердите присутствие
+          </h2>
+          <div className="floral-divider my-8" />
+          <p className="mb-10 text-center text-muted-foreground">
+            Пожалуйста, дайте нам знать до 1 августа 2026
+          </p>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <form onSubmit={submit} className="space-y-5 rounded-3xl bg-card p-8 shadow-lg">
+            <div>
+              <label className="mb-1.5 block font-serif text-lg text-foreground">Ваше имя</label>
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                placeholder="Как к вам обращаться?"
+                className="w-full rounded-xl border border-input bg-background px-4 py-3 outline-none focus:border-rose focus:ring-2 focus:ring-rose/30"
+              />
+            </div>
+
+            <div>
+              <label className="mb-1.5 block font-serif text-lg text-foreground">Гость +1</label>
+              <input
+                value={plusOne}
+                onChange={(e) => setPlusOne(e.target.value)}
+                placeholder="Имя вашего спутника (если есть)"
+                className="w-full rounded-xl border border-input bg-background px-4 py-3 outline-none focus:border-rose focus:ring-2 focus:ring-rose/30"
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block font-serif text-lg text-foreground">Придёте ли вы?</label>
+              <div className="grid grid-cols-2 gap-3">
+                {(['yes', 'no'] as const).map((opt) => (
+                  <button
+                    key={opt}
+                    type="button"
+                    onClick={() => setAttendance(opt)}
+                    className={`rounded-xl border px-4 py-3 font-serif text-lg transition ${
+                      attendance === opt
+                        ? 'border-rose bg-rose text-primary-foreground shadow'
+                        : 'border-input bg-background text-foreground hover:border-rose'
+                    }`}
+                  >
+                    {opt === 'yes' ? 'Приду 💐' : 'Не приду'}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="mb-1.5 block font-serif text-lg text-foreground">
+                Пожелания и советы молодым
+              </label>
+              <textarea
+                value={wishes}
+                onChange={(e) => setWishes(e.target.value)}
+                rows={4}
+                placeholder="Напишите нам тёплые слова..."
+                className="w-full resize-none rounded-xl border border-input bg-background px-4 py-3 outline-none focus:border-rose focus:ring-2 focus:ring-rose/30"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full rounded-xl bg-rose py-4 font-serif text-xl text-primary-foreground shadow-md transition hover:brightness-105 active:scale-[0.99]"
+            >
+              Отправить ответ
+            </button>
+          </form>
+        </Reveal>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-border py-12 text-center">
+        <p className="font-script text-4xl text-rose">Анна & Дмитрий</p>
+        <p className="mt-2 font-serif tracking-[0.3em] text-muted-foreground">12 · 09 · 2026</p>
+        <p className="mt-4 text-2xl">🌸 🌷 🌸</p>
+      </footer>
+    </div>
+  );
+}
