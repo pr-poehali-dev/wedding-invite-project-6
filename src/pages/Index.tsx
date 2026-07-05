@@ -24,6 +24,22 @@ const couple = [
   },
 ];
 
+const WEDDING_DATE = new Date('2026-10-05T10:00:00');
+
+function useCountdown(target: Date) {
+  const [left, setLeft] = useState(() => target.getTime() - Date.now());
+  useEffect(() => {
+    const id = setInterval(() => setLeft(target.getTime() - Date.now()), 1000);
+    return () => clearInterval(id);
+  }, [target]);
+  const clamped = Math.max(left, 0);
+  const days = Math.floor(clamped / 86400000);
+  const hours = Math.floor((clamped % 86400000) / 3600000);
+  const minutes = Math.floor((clamped % 3600000) / 60000);
+  const seconds = Math.floor((clamped % 60000) / 1000);
+  return { days, hours, minutes, seconds };
+}
+
 function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -54,6 +70,7 @@ export default function Index() {
   const [attendance, setAttendance] = useState<'yes' | 'no'>('yes');
   const [allergies, setAllergies] = useState('');
   const [wishes, setWishes] = useState('');
+  const { days, hours, minutes, seconds } = useCountdown(WEDDING_DATE);
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,7 +78,13 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div
+      className="min-h-screen bg-background bg-repeat text-foreground overflow-x-hidden"
+      style={{
+        backgroundImage: `url(https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/d6488f19-7c9d-47b5-99be-a6c61d5e6526.jpg)`,
+        backgroundSize: '480px',
+      }}
+    >
       {/* HERO */}
       <section className="relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-sand via-background to-background px-6 py-16 text-center">
         <div className="animate-fade-in relative z-10 mx-auto flex aspect-square w-full max-w-lg items-center justify-center bg-contain bg-center bg-no-repeat md:max-w-2xl"
@@ -94,6 +117,29 @@ export default function Index() {
         </a>
       </section>
 
+      {/* COUNTDOWN */}
+      <section className="relative px-6 py-14 text-center">
+        <Reveal>
+          <p className="mb-6 font-script text-2xl text-rose md:text-3xl">До нашего дня осталось</p>
+          <div className="mx-auto flex max-w-2xl flex-wrap justify-center gap-4 md:gap-6">
+            {[
+              { v: days, l: 'дней' },
+              { v: hours, l: 'часов' },
+              { v: minutes, l: 'минут' },
+              { v: seconds, l: 'секунд' },
+            ].map((item) => (
+              <div
+                key={item.l}
+                className="flex w-20 flex-col items-center justify-center rounded-2xl border border-gold/30 bg-card py-4 shadow-sm md:w-28 md:py-6"
+              >
+                <span className="font-serif text-3xl text-rose md:text-5xl">{String(item.v).padStart(2, '0')}</span>
+                <span className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{item.l}</span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
       {/* COUPLE */}
       <section className="relative overflow-hidden bg-secondary/60 px-6 py-24 text-center md:py-32">
         <img
@@ -109,7 +155,10 @@ export default function Index() {
           <div className="grid gap-8 md:grid-cols-2">
             {couple.map((person, i) => (
               <Reveal key={person.name} delay={i * 120}>
-                <div className="rounded-3xl bg-card p-8 shadow-sm">
+                <div className="relative rounded-3xl border border-gold/20 bg-card p-8 shadow-md">
+                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blush text-rose">
+                    <Icon name={person.role === 'Невеста' ? 'Flower2' : 'Gem'} size={24} />
+                  </div>
                   <p className="mb-2 font-sans text-xs uppercase tracking-[0.3em] text-rose">{person.role}</p>
                   <h3 className="mb-4 font-serif text-3xl text-foreground">{person.name}</h3>
                   <p className="text-muted-foreground">{person.bio}</p>
@@ -218,6 +267,16 @@ export default function Index() {
               allowFullScreen
             />
           </div>
+        </Reveal>
+      </section>
+
+      {/* QUOTE */}
+      <section className="px-6 py-16 text-center">
+        <Reveal>
+          <Icon name="Quote" size={32} className="mx-auto mb-4 text-gold/60" />
+          <p className="mx-auto max-w-xl font-script text-2xl leading-relaxed text-rose md:text-3xl">
+            «Любовь — это когда счастье другого человека важнее твоего собственного»
+          </p>
         </Reveal>
       </section>
 
