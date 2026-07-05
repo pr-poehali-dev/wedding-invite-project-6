@@ -40,6 +40,7 @@ export default function Index() {
   const [name, setName] = useState('');
   const [plusOne, setPlusOne] = useState('');
   const [attendance, setAttendance] = useState<'yes' | 'no'>('yes');
+  const [allergies, setAllergies] = useState('');
   const [wishes, setWishes] = useState('');
 
   const submit = (e: React.FormEvent) => {
@@ -65,7 +66,7 @@ export default function Index() {
           <p className="mb-4 font-script text-3xl text-rose md:text-4xl">Мы приглашаем вас</p>
           <div className="floral-divider mb-6" />
           <h1 className="font-serif text-6xl font-medium leading-none text-foreground md:text-8xl">
-            Анна <span className="text-rose">&</span> Дмитрий
+            Дарья <span className="text-rose">&</span> Григорий
           </h1>
           <div className="floral-divider mt-6 mb-8" />
           <p className="font-serif text-2xl tracking-[0.3em] text-muted-foreground md:text-3xl">
@@ -244,6 +245,18 @@ export default function Index() {
 
             <div>
               <label className="mb-1.5 block font-serif text-lg text-foreground">
+                Пищевые аллергии
+              </label>
+              <input
+                value={allergies}
+                onChange={(e) => setAllergies(e.target.value)}
+                placeholder="Есть ли ограничения в еде?"
+                className="w-full rounded-xl border border-input bg-background px-4 py-3 outline-none focus:border-rose focus:ring-2 focus:ring-rose/30"
+              />
+            </div>
+
+            <div>
+              <label className="mb-1.5 block font-serif text-lg text-foreground">
                 Пожелания и советы молодым
               </label>
               <textarea
@@ -267,7 +280,7 @@ export default function Index() {
 
       {/* FOOTER */}
       <footer className="border-t border-border py-12 text-center">
-        <p className="font-script text-4xl text-rose">Анна & Дмитрий</p>
+        <p className="font-script text-4xl text-rose">Дарья & Григорий</p>
         <p className="mt-2 font-serif tracking-[0.3em] text-muted-foreground">12 · 09 · 2026</p>
         <p className="mt-4 text-2xl">🌸 🌷 🌸</p>
       </footer>
