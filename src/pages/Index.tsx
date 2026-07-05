@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import Icon from '@/components/ui/icon';
 
 const HERO_IMG =
-  'https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/360c81e8-8350-4ce1-a9e5-da891749ae6f.jpg';
+  'https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/bucket/ccd4d207-2337-4a2c-a3ef-f6730965d18e.jpg';
 
 const timeline = [
   { time: '15:00', title: 'Сбор гостей', desc: 'Welcome-зона, лёгкие закуски и напитки', icon: 'Coffee' },
@@ -170,10 +170,10 @@ export default function Index() {
           <Reveal delay={120}>
             <div className="flex flex-wrap items-center justify-center gap-4">
               {[
-                { c: 'hsl(350 45% 88%)', n: 'Пудровый' },
-                { c: 'hsl(348 55% 72%)', n: 'Розовый' },
-                { c: 'hsl(32 38% 90%)', n: 'Бежевый' },
-                { c: 'hsl(36 45% 62%)', n: 'Золотой' },
+                { c: 'hsl(345 55% 92%)', n: 'Нежно-розовый' },
+                { c: 'hsl(345 50% 80%)', n: 'Розовый' },
+                { c: 'hsl(42 33% 94%)', n: 'Миндальный' },
+                { c: 'hsl(100 18% 52%)', n: 'Зелёный' },
               ].map((color) => (
                 <div key={color.n} className="flex flex-col items-center gap-2">
                   <span
