@@ -59,10 +59,18 @@ export default function Index() {
           backgroundPosition: 'center',
         }}
       >
-        <div className="animate-float pointer-events-none absolute left-8 top-16 text-5xl opacity-60 md:text-7xl">🌸</div>
-        <div className="animate-float pointer-events-none absolute bottom-24 right-10 text-4xl opacity-50 md:text-6xl" style={{ animationDelay: '2s' }}>🌷</div>
+        <img
+          src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/8fe3036e-7097-411a-965d-836ba9afec81.jpg"
+          alt=""
+          className="pointer-events-none absolute -left-4 -top-4 w-40 opacity-90 mix-blend-multiply md:w-64"
+        />
+        <img
+          src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/9c86208a-963f-41ea-8753-f1942e03cc1d.jpg"
+          alt=""
+          className="pointer-events-none absolute -bottom-4 -right-4 w-40 rotate-180 opacity-90 mix-blend-multiply md:w-64"
+        />
 
-        <div className="animate-fade-in">
+        <div className="animate-fade-in relative z-10 rounded-[2rem] border border-gold/30 bg-card/70 px-8 py-12 shadow-xl backdrop-blur-sm md:px-16 md:py-16">
           <p className="mb-4 font-script text-3xl text-rose md:text-4xl">Мы приглашаем вас</p>
           <div className="floral-divider mb-6" />
           <h1 className="font-serif text-6xl font-medium leading-none text-foreground md:text-8xl">
