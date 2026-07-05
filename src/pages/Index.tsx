@@ -5,11 +5,23 @@ const HERO_IMG =
   'https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/bucket/ccd4d207-2337-4a2c-a3ef-f6730965d18e.jpg';
 
 const timeline = [
-  { time: '15:00', title: 'Сбор гостей', desc: 'Welcome-зона, лёгкие закуски и напитки', icon: 'Coffee' },
-  { time: '16:00', title: 'Церемония', desc: 'Обмен клятвами в цветущем саду', icon: 'Heart' },
-  { time: '17:30', title: 'Фуршет', desc: 'Поздравления и семейные фото', icon: 'GlassWater' },
-  { time: '19:00', title: 'Банкет', desc: 'Ужин, тосты и первый танец', icon: 'UtensilsCrossed' },
-  { time: '22:00', title: 'Вечеринка', desc: 'Танцы до утра и фейерверк', icon: 'Music' },
+  { time: '10:00', title: 'Бракосочетание', desc: 'Церемония в Дворце бракосочетания', icon: 'Heart' },
+  { time: '', title: 'Фуршет', desc: 'Поздравления и семейные фото', icon: 'GlassWater' },
+  { time: '', title: 'Банкет', desc: 'Ужин, тосты и первый танец', icon: 'UtensilsCrossed' },
+  { time: '', title: 'Вечеринка', desc: 'Танцы до утра и фейерверк', icon: 'Music' },
+];
+
+const couple = [
+  {
+    name: 'Дарья',
+    role: 'Невеста',
+    bio: 'Любит утренний кофе, книги о путешествиях и долгие прогулки. Мечтает объехать весь мир вместе с Григорием.',
+  },
+  {
+    name: 'Григорий',
+    role: 'Жених',
+    bio: 'Обожает готовить, играть на гитаре и строить планы на будущее. Рядом с Дарьей чувствует себя дома.',
+  },
 ];
 
 function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
@@ -143,7 +155,7 @@ export default function Index() {
                     <Icon name={item.icon} size={20} />
                   </div>
                   <div>
-                    <p className="font-serif text-2xl text-rose">{item.time}</p>
+                    {item.time && <p className="font-serif text-2xl text-rose">{item.time}</p>}
                     <h3 className="font-serif text-xl text-foreground">{item.title}</h3>
                     <p className="text-muted-foreground">{item.desc}</p>
                   </div>
@@ -183,39 +195,29 @@ export default function Index() {
         </Reveal>
       </section>
 
-      {/* DRESS CODE */}
+      {/* COUPLE */}
       <section className="relative overflow-hidden bg-secondary/60 px-6 py-24 text-center md:py-32">
         <img
           src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/b220abd6-72bc-498c-8d1e-b007a4d198d7.jpg"
           alt=""
           className="pointer-events-none absolute -right-12 -top-8 w-36 opacity-70 mix-blend-multiply md:w-52"
         />
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto max-w-3xl">
           <Reveal>
-            <h2 className="font-serif text-5xl text-foreground md:text-6xl">Дресс-код</h2>
+            <h2 className="font-serif text-5xl text-foreground md:text-6xl">Молодожёны</h2>
             <div className="floral-divider my-8" />
-            <p className="mb-8 text-lg text-muted-foreground">
-              Мы будем благодарны, если вы поддержите нежную палитру торжества в своих нарядах
-            </p>
           </Reveal>
-          <Reveal delay={120}>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              {[
-                { c: 'hsl(345 55% 92%)', n: 'Нежно-розовый' },
-                { c: 'hsl(345 50% 80%)', n: 'Розовый' },
-                { c: 'hsl(42 33% 94%)', n: 'Миндальный' },
-                { c: 'hsl(100 18% 52%)', n: 'Зелёный' },
-              ].map((color) => (
-                <div key={color.n} className="flex flex-col items-center gap-2">
-                  <span
-                    className="h-16 w-16 rounded-full border-2 border-white shadow-md"
-                    style={{ backgroundColor: color.c }}
-                  />
-                  <span className="font-serif text-lg text-foreground">{color.n}</span>
+          <div className="grid gap-8 md:grid-cols-2">
+            {couple.map((person, i) => (
+              <Reveal key={person.name} delay={i * 120}>
+                <div className="rounded-3xl bg-card p-8 shadow-sm">
+                  <p className="mb-2 font-sans text-xs uppercase tracking-[0.3em] text-rose">{person.role}</p>
+                  <h3 className="mb-4 font-serif text-3xl text-foreground">{person.name}</h3>
+                  <p className="text-muted-foreground">{person.bio}</p>
                 </div>
-              ))}
-            </div>
-          </Reveal>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
