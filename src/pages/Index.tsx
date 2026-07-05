@@ -94,6 +94,32 @@ export default function Index() {
         </a>
       </section>
 
+      {/* COUPLE */}
+      <section className="relative overflow-hidden bg-secondary/60 px-6 py-24 text-center md:py-32">
+        <img
+          src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/b220abd6-72bc-498c-8d1e-b007a4d198d7.jpg"
+          alt=""
+          className="pointer-events-none absolute -right-12 -top-8 w-36 opacity-70 mix-blend-multiply md:w-52"
+        />
+        <div className="mx-auto max-w-3xl">
+          <Reveal>
+            <h2 className="font-serif text-5xl text-foreground md:text-6xl">Молодожёны</h2>
+            <div className="floral-divider my-8" />
+          </Reveal>
+          <div className="grid gap-8 md:grid-cols-2">
+            {couple.map((person, i) => (
+              <Reveal key={person.name} delay={i * 120}>
+                <div className="rounded-3xl bg-card p-8 shadow-sm">
+                  <p className="mb-2 font-sans text-xs uppercase tracking-[0.3em] text-rose">{person.role}</p>
+                  <h3 className="mb-4 font-serif text-3xl text-foreground">{person.name}</h3>
+                  <p className="text-muted-foreground">{person.bio}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* STORY */}
       <section id="story" className="relative mx-auto max-w-3xl px-6 py-24 text-center md:py-32">
         <img
@@ -193,32 +219,6 @@ export default function Index() {
             />
           </div>
         </Reveal>
-      </section>
-
-      {/* COUPLE */}
-      <section className="relative overflow-hidden bg-secondary/60 px-6 py-24 text-center md:py-32">
-        <img
-          src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/b220abd6-72bc-498c-8d1e-b007a4d198d7.jpg"
-          alt=""
-          className="pointer-events-none absolute -right-12 -top-8 w-36 opacity-70 mix-blend-multiply md:w-52"
-        />
-        <div className="mx-auto max-w-3xl">
-          <Reveal>
-            <h2 className="font-serif text-5xl text-foreground md:text-6xl">Молодожёны</h2>
-            <div className="floral-divider my-8" />
-          </Reveal>
-          <div className="grid gap-8 md:grid-cols-2">
-            {couple.map((person, i) => (
-              <Reveal key={person.name} delay={i * 120}>
-                <div className="rounded-3xl bg-card p-8 shadow-sm">
-                  <p className="mb-2 font-sans text-xs uppercase tracking-[0.3em] text-rose">{person.role}</p>
-                  <h3 className="mb-4 font-serif text-3xl text-foreground">{person.name}</h3>
-                  <p className="text-muted-foreground">{person.bio}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* RSVP */}
