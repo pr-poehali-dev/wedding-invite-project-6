@@ -51,46 +51,31 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* HERO */}
-      <section className="relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-sand via-background to-background px-6 py-24 text-center">
-        <div className="animate-fade-in relative z-10 mx-auto max-w-2xl rounded-[2rem] border border-gold/40 bg-card px-8 py-14 shadow-xl md:px-16 md:py-20">
-          <img
-            src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/8fe3036e-7097-411a-965d-836ba9afec81.jpg"
-            alt=""
-            className="pointer-events-none absolute -left-6 -top-6 w-24 opacity-95 mix-blend-multiply md:w-40"
-          />
-          <img
-            src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/8fe3036e-7097-411a-965d-836ba9afec81.jpg"
-            alt=""
-            className="pointer-events-none absolute -right-6 -top-6 w-24 -scale-x-100 opacity-95 mix-blend-multiply md:w-40"
-          />
-          <img
-            src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/9c86208a-963f-41ea-8753-f1942e03cc1d.jpg"
-            alt=""
-            className="pointer-events-none absolute -bottom-6 -left-6 w-24 -scale-x-100 opacity-95 mix-blend-multiply md:w-40"
-          />
-          <img
-            src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/9c86208a-963f-41ea-8753-f1942e03cc1d.jpg"
-            alt=""
-            className="pointer-events-none absolute -bottom-6 -right-6 w-24 opacity-95 mix-blend-multiply md:w-40"
-          />
-
-          <p className="mb-3 font-sans text-xs uppercase tracking-[0.4em] text-muted-foreground">
-            Вы приглашены на свадьбу
-          </p>
-          <div className="floral-divider my-6" />
-          <h1 className="font-serif text-6xl font-medium leading-none text-foreground md:text-8xl">
-            Дарья <span className="text-rose">&</span> Григорий
-          </h1>
-          <div className="floral-divider my-6" />
-          <p className="font-serif text-2xl tracking-[0.3em] text-muted-foreground md:text-3xl">
-            12 · 09 · 2026
-          </p>
-          <p className="mt-6 font-script text-3xl text-rose">Ждём вас!</p>
+      <section className="relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-sand via-background to-background px-6 py-16 text-center">
+        <div className="animate-fade-in relative z-10 mx-auto flex aspect-[9/11] w-full max-w-md items-center justify-center bg-contain bg-center bg-no-repeat px-10 py-16 md:max-w-lg"
+          style={{
+            backgroundImage: `url(https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/deca0f6a-56e4-430a-a9ec-e36e2d2dd7a8.jpg)`,
+          }}
+        >
+          <div>
+            <p className="mb-3 font-sans text-xs uppercase tracking-[0.4em] text-muted-foreground">
+              Вы приглашены на свадьбу
+            </p>
+            <div className="floral-divider my-5" />
+            <h1 className="font-serif text-5xl font-medium leading-none text-foreground md:text-7xl">
+              Дарья <span className="text-rose">&</span> Григорий
+            </h1>
+            <div className="floral-divider my-5" />
+            <p className="font-serif text-xl tracking-[0.3em] text-muted-foreground md:text-2xl">
+              12 · 09 · 2026
+            </p>
+            <p className="mt-5 font-script text-2xl text-rose md:text-3xl">Ждём вас!</p>
+          </div>
         </div>
 
         <a
           href="#story"
-          className="relative z-10 mt-10 flex flex-col items-center gap-2 text-gold transition-opacity hover:opacity-70"
+          className="relative z-10 mt-6 flex flex-col items-center gap-2 text-gold transition-opacity hover:opacity-70"
         >
           <span className="font-serif text-lg tracking-widest">листайте вниз</span>
           <Icon name="ChevronDown" className="animate-float" size={26} />
