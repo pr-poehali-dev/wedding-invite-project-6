@@ -83,7 +83,17 @@ export default function Index() {
       </section>
 
       {/* STORY */}
-      <section id="story" className="mx-auto max-w-3xl px-6 py-24 text-center md:py-32">
+      <section id="story" className="relative mx-auto max-w-3xl px-6 py-24 text-center md:py-32">
+        <img
+          src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/b220abd6-72bc-498c-8d1e-b007a4d198d7.jpg"
+          alt=""
+          className="pointer-events-none absolute -left-10 top-10 w-32 -scale-x-100 opacity-80 mix-blend-multiply md:w-48"
+        />
+        <img
+          src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/b220abd6-72bc-498c-8d1e-b007a4d198d7.jpg"
+          alt=""
+          className="pointer-events-none absolute -right-10 bottom-10 w-32 rotate-180 opacity-80 mix-blend-multiply md:w-48"
+        />
         <Reveal>
           <div className="relative mx-auto mb-10 w-64 md:w-80">
             <img
@@ -115,7 +125,12 @@ export default function Index() {
       </section>
 
       {/* PROGRAM */}
-      <section className="bg-secondary/60 px-6 py-24 md:py-32">
+      <section className="relative overflow-hidden bg-secondary/60 px-6 py-24 md:py-32">
+        <img
+          src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/b220abd6-72bc-498c-8d1e-b007a4d198d7.jpg"
+          alt=""
+          className="pointer-events-none absolute -right-12 -top-8 w-36 opacity-70 mix-blend-multiply md:w-52"
+        />
         <div className="mx-auto max-w-3xl">
           <Reveal>
             <h2 className="text-center font-serif text-5xl text-foreground md:text-6xl">Программа праздника</h2>
@@ -145,7 +160,12 @@ export default function Index() {
       </section>
 
       {/* LOCATION + MAP */}
-      <section className="mx-auto max-w-4xl px-6 py-24 text-center md:py-32">
+      <section className="relative mx-auto max-w-4xl overflow-hidden px-6 py-24 text-center md:py-32">
+        <img
+          src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/b220abd6-72bc-498c-8d1e-b007a4d198d7.jpg"
+          alt=""
+          className="pointer-events-none absolute -left-12 bottom-0 w-36 -scale-x-100 opacity-70 mix-blend-multiply md:w-52"
+        />
         <Reveal>
           <h2 className="font-serif text-5xl text-foreground md:text-6xl">Место проведения</h2>
           <div className="floral-divider my-8" />
@@ -169,7 +189,12 @@ export default function Index() {
       </section>
 
       {/* DRESS CODE */}
-      <section className="bg-secondary/60 px-6 py-24 text-center md:py-32">
+      <section className="relative overflow-hidden bg-secondary/60 px-6 py-24 text-center md:py-32">
+        <img
+          src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/b220abd6-72bc-498c-8d1e-b007a4d198d7.jpg"
+          alt=""
+          className="pointer-events-none absolute -right-12 -top-8 w-36 opacity-70 mix-blend-multiply md:w-52"
+        />
         <div className="mx-auto max-w-2xl">
           <Reveal>
             <h2 className="font-serif text-5xl text-foreground md:text-6xl">Дресс-код</h2>
@@ -200,7 +225,12 @@ export default function Index() {
       </section>
 
       {/* RSVP */}
-      <section className="mx-auto max-w-xl px-6 py-24 md:py-32">
+      <section className="relative mx-auto max-w-xl overflow-hidden px-6 py-24 md:py-32">
+        <img
+          src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/b220abd6-72bc-498c-8d1e-b007a4d198d7.jpg"
+          alt=""
+          className="pointer-events-none absolute -left-12 bottom-0 w-32 -scale-x-100 opacity-70 mix-blend-multiply md:w-44"
+        />
         <Reveal>
           <h2 className="text-center font-serif text-5xl text-foreground md:text-6xl">
             Подтвердите присутствие
@@ -290,10 +320,19 @@ export default function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-border py-12 text-center">
+      <footer className="relative overflow-hidden border-t border-border py-12 text-center">
+        <img
+          src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/b220abd6-72bc-498c-8d1e-b007a4d198d7.jpg"
+          alt=""
+          className="pointer-events-none absolute -left-8 -top-4 w-24 -scale-x-100 opacity-70 mix-blend-multiply md:w-32"
+        />
+        <img
+          src="https://cdn.poehali.dev/projects/df973f56-3ced-4dbb-8c1a-63d6cdb83dd7/files/b220abd6-72bc-498c-8d1e-b007a4d198d7.jpg"
+          alt=""
+          className="pointer-events-none absolute -right-8 -top-4 w-24 rotate-180 opacity-70 mix-blend-multiply md:w-32"
+        />
         <p className="font-script text-4xl text-rose">Дарья & Григорий</p>
         <p className="mt-2 font-serif tracking-[0.3em] text-muted-foreground">12 · 09 · 2026</p>
-        <p className="mt-4 text-2xl">🌸 🌷 🌸</p>
       </footer>
     </div>
   );
